@@ -19,6 +19,7 @@
         </div>
       </div>
       <span
+        :class="ratingBadgeClass"
         class="position-absolute top-0 bg-info start-100 translate-middle p-2 bg-info text-light rounded-circle border border-2 border-light"
       >
         {{ book.rating }}
@@ -34,6 +35,17 @@ export default {
     book: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    ratingBadgeClass() {
+      if (this.book.rating > 7) {
+        return 'bg-success'
+      } else if (this.book.rating > 5) {
+        return 'bg-warning'
+      } else {
+        return 'bg-danger'
+      }
     }
   }
 }

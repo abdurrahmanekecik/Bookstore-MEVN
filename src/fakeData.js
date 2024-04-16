@@ -5,7 +5,7 @@ const books = [
         author: "Jane Smith",
         page: 320,
         description: "The Enigma is a book about",
-        rating: 4.5,
+        rating: 7.5,
         uploadDate: "19 Jan 2021"
     },
     {
@@ -14,7 +14,7 @@ const books = [
         author: "Dan Brown",
         page: 528,
         description: "The Lost Symbol is a book about",
-        rating: 4.2,
+        rating: 8.2,
         uploadDate: "25 Feb 2021"
     },
     {
@@ -50,7 +50,7 @@ const books = [
         author: "Jane Austen",
         page: 279,
         description: "Pride and Prejudice is a book about",
-        rating: 4.5,
+        rating: 6.5,
         uploadDate: "25 Jun 2021"
     },
     {
@@ -59,7 +59,7 @@ const books = [
         author: "J.D. Salinger",
         page: 224,
         description: "The Catcher in the Rye is a book about",
-        rating: 4.4,
+        rating: 5.4,
         uploadDate: "30 Jul 2021"
     },
     {
