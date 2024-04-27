@@ -2,7 +2,7 @@
   <section>
     <div class="container">
       <SectionHeader :title="sectionTitle" :text="sectionText" />
-      <button>Back</button>
+      <button class="btn btn-primary mb-4"><font-awesome-icon icon="arrow-left" /> Back</button>
       <div class="row mb-4">
         <div class="col-lg-6">
           <img class="card-img-top" src="/public/assets/images/b1.jpg" />
@@ -54,7 +54,7 @@
                   <div class="d-flex justify-content-between">
                     <p class="fw-bold fst-italic">John Doe</p>
                     <div class="d-flex align-items-center">
-                      <p>Upvote</p>
+                      <p>Upvote <font-awesome-icon icon="heart" /></p>
                       <p class="ps-2"><strong>8</strong></p>
                     </div>
                   </div>
@@ -109,6 +109,11 @@ export default {
   },
   components: {
     SectionHeader
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1)
+    }
   },
   created() {
     const bookId = this.$route.params.id
