@@ -19,4 +19,8 @@ export default {
 html body {
   font-family: 'Mulish', sans-serif;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 </style>
