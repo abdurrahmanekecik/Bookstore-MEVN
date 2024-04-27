@@ -2,9 +2,9 @@
   <section>
     <div class="container">
       <SectionHeader :title="sectionTitle" :text="sectionText" />
-      <BookList :books="books" />
+      <BookList :books="paginatedBooks" />
       totalPages: {{ totalPages }}
-      <Pagination :currentPage="currentPage" :totalPages="totalPages" />
+      <Pagination :currentPage="currentPage" :totalPages="totalPages" @page-changed="updatePage" />
     </div>
   </section>
 </template>
@@ -27,7 +27,7 @@ export default {
       sectionTitle: 'Books',
       sectionText: 'Books Text',
       currentPage: 1,
-      itemsPerPage: 3
+      itemsPerPage: 4
     }
   },
   computed: {
@@ -38,6 +38,11 @@ export default {
       const start = (this.currentPage - 1) * this.itemsPerPage
       const end = start + this.itemsPerPage
       return this.books.slice(start, end)
+    }
+  },
+  methods: {
+    updatePage(page) {
+      this.currentPage = page
     }
   }
 }

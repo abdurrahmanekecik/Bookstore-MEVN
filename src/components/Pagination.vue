@@ -2,15 +2,29 @@
   <div>
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">
-        <li class="page-item">
+        <li
+          class="page-item"
+          :class="{ disabled: currentPage === 1 }"
+          v-on:click="goToPage(currentPage - 1)"
+        >
           <a class="page-link" href="#" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
+        <li
+          :class="{ active: currentPage === page }"
+          class="page-item"
+          v-for="page in totalPages"
+          :key="page"
+        >
+          <a class="page-link" v-on:click="goToPage(page)">{{ page }}</a>
+        </li>
+
+        <li
+          class="page-item"
+          v-on:click="goToPage(currentPage + 1)"
+          :class="{ disabled: currentPage === totalPages }"
+        >
           <a class="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
@@ -23,6 +37,7 @@
 <script>
 export default {
   name: 'Pagination',
+  emits: ['page-changed'],
   props: {
     currentPage: {
       type: Number,
@@ -31,6 +46,11 @@ export default {
     totalPages: {
       type: Number,
       default: 1
+    }
+  },
+  methods: {
+    goToPage(page) {
+      this.$emit('page-changed', page)
     }
   }
 }
